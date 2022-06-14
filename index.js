@@ -16,10 +16,11 @@ app.set("port", process.env.PORT || 3000);
 
 //rutas 
 app.use(require('./routes/user.routes'));
-app.use(require('./routes/profesor.routes'));
+app.use(require('./routes/productor.routes'));
+app.use(require('./routes/admin.routes'));
 app.use(require('./routes/comentarios.routes'));
 app.use(require('./routes/auth.routes'));
-app.use(require('./routes/materias.routes'));
+app.use(require('./routes/cultivo.routes'));
 //devuelve la conexion
 app.listen(app.get("port"),()=>
     console.log(`server on port ${app.get("port")}`)

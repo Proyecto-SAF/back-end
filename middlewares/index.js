@@ -3,8 +3,9 @@
 const validarComentario= require('../middlewares/validar_comentario');
 const validarEmail= require('../middlewares/validar_email');
 const validarJWT=require('../middlewares/validar_jwt')
-const validarMateria= require('../middlewares/validar_materia');
-const validarProfesor= require('../middlewares/validar_profesor');
+const validar_Cultivo= require('./validar_cultivo');
+const validarProductor= require('../middlewares/validar_productor');
+const validarAdmin= require('../middlewares/validar_admin');
 const validarUser= require('../middlewares/validar_user')
 const validarAuth= require('../middlewares/validar_auth');
 const validarRol = require('../middlewares/validar_rol');
@@ -14,8 +15,9 @@ const validarRol = require('../middlewares/validar_rol');
         ...validarEmail,
         
         ...validarJWT,
-        ...validarMateria,
-        ...validarProfesor,
+        ...validar_Cultivo,
+        ...validarProductor,
+        ...validarAdmin,
         ...validarUser,
         ... validarAuth,
         ...validarRol

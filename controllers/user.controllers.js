@@ -20,10 +20,10 @@ ctrlUser.rutaGetID = async (req,res)=>{
 
 ctrlUser.rutaPost = async (req,res)=>{
      
-        const { nombre_completo, email, password, provincia, profesor, alumno } = req.body;
+        const { nombre_completo, email, password, localidad, productor, admin } = req.body;
 
         try {
-            const usuario = new User({ nombre_completo, email, password, provincia, profesor, alumno });
+            const usuario = new User({ nombre_completo, email, password, localidad, productor, admin });
 
             //Guardar usuario en db
             await usuario.save();

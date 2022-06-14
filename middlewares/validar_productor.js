@@ -1,6 +1,6 @@
 const { body, check } = require('express-validator');
-const {siExistemateria}= require('../middlewares/validar_materia')
-const validacionProfesor=
+const {siExistecultivo}= require('./validar_cultivo')
+const validacionProductor=
 [
    check('descripcion', 'La descripcion ingresada no contiene un formato correcto')
     .isString()
@@ -8,21 +8,21 @@ const validacionProfesor=
     .isEmpty()
     .isLength({ min: 15}),
 
-   check('nivel', 'el nivel ingresado no contiene un formato correcto')
+   check('hectareas', 'Las hectareas ingresadas no contiene un formato correcto')
     .isArray()
     .not()
     .isEmpty(),
 
-   check('materia', 'La materia ingresada no contiene un formato correcto')
+   check('cultivo', 'El cultivo ingresado no contiene un formato correcto')
     .isArray()
     .not()
     .isEmpty()
-    .custom(siExistemateria),
+    .custom(siExistecultivo),
 
   
    
 ]
 
 module.exports = {
-    validacionProfesor
+    validacionProductor
 }

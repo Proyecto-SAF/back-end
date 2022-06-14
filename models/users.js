@@ -15,10 +15,6 @@ const UserShema = new Schema({
         type: String,
         required: [true, 'La contraseña es necesaria']
     },
-    provincia:{
-        type: String,
-        required: [true, 'La provincia es necesaria']
-    },
     rol:{
         type:String,
         default:"common_user"

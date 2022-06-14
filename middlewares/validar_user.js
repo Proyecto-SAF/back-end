@@ -22,13 +22,6 @@ const validarUser=
     .isEmpty(),
     
 
-      check('provincia', 'la provincia ingresada no contiene un formato correcto')
-      .isString()
-      .not()
-      .isEmpty(),
-
-
-
 ]
 
 module.exports = {

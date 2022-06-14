@@ -1,6 +1,7 @@
 const ctrlAuthUser = {};
 const User=require('../models/users')
-const Profesor = require('../models/profesor');
+const Productor = require('../models/productor');
+const Admin = require('../models/admin');
 const {generate_jwt} = require('../helpers/generar_jwt');
 
 //Login de usuarios
@@ -59,8 +60,10 @@ ctrlAuthUser.revalidarToken = async (req, res) => {
 
     const usuario = await User.findById(_id)
 
-    const profesor= await Profesor.find(query).populate('userId', 'nombre_completo')
+    const productor= await Productor.find(query).populate('userId', 'nombre_completo')
     console.log(profesor)
+    const admin= await Admin.find(query).populate('userId', 'nombre_completo')
+    console.log(admin)
     const token = await generate_jwt(_id);
 
 
@@ -68,11 +71,35 @@ ctrlAuthUser.revalidarToken = async (req, res) => {
         ok: true,
         msg: 'Token revalidado',
         usuario,
-        profesor,
+        productor,
+        admin,
         token
 
     })
 }
 
+ctrlAuthUser.revalidarToken = async (req, res) => {
+
+    const {_id } = req.usuario;
+
+    const query = {userId: _id}
+
+    const usuario = await User.findById(_id)
+
+    const admin= await Admin.find(query).populate('userId', 'nombre_completo')
+    console.log(admin)
+    const token = await generate_jwt(_id);
+
+
+    res.json({
+        ok: true,
+        msg: 'Token revalidado',
+        usuario,
+        productor,
+        admin,
+        token
+
+    })
+}
 
 module.exports = ctrlAuthUser ;

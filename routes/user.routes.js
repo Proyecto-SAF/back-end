@@ -34,7 +34,7 @@ router.put('/edit-user/:id',
 
 validar_jwt,
 validarUser,
-tieneRol('ADMIN','PROFESOR','USUARIO_COMUN'),
+tieneRol('ADMIN','PRODUCTOR','USUARIO_COMUN'),
 check('id','No es un id de MongoDB válido').isMongoId(),
 validarCampos,
 rutaPut)

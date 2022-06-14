@@ -7,59 +7,59 @@ const{
     rutaGet, 
     rutaPut, 
     rutaLogicalDelete,
-    listarprofe
-}=  require('../controllers/profesores.controllers');
+    listarprod
+}=  require('../controllers/productor.controllers');
 
 const { body, check } = require('express-validator');
 
 const {
     validar_jwt,
-    validacionProfesor 
+    validacionproductor 
 }= require('../middlewares');
 
 
 
-//mostrar los profesores
-router.get('/profesor/get',
+//mostrar los productores
+router.get('/productor/get',
 
 rutaGet)
 
-//mostrar listado de profesores
+//mostrar listado de productores
 
-router.get('/profesor/get/listar',
+router.get('/productor/get/listar',
 
-listarprofe
+listarprod
 )
 
-// agregar profesor
-router.post('/profesor',
+// agregar productor
+router.post('/productor',
 [
 validar_jwt,
- validacionProfesor,
+ validacionproductor,
  validarCampos
 ],rutaPost)
 
 
 
-//ruta editar profesor
-router.put('/profesor/:id',
+//ruta editar productor
+router.put('/productor/:id',
 validar_jwt,
-validacionProfesor,
+validacionproductor,
 check('id','No es un id de MongoDB válido').isMongoId(),
 validarCampos,
 rutaPut)
 
 
-//ruta eliminar profesor
-router.delete('/profesor/delete/:id',
+//ruta eliminar productor
+router.delete('/productor/delete/:id',
 validar_jwt,
 check('id','No es un id de MongoDB válido').isMongoId(),
 validarCampos,
 rutaDelete)
 
 
-//eliminar profesor logicamente
-router.put('/profesor/deleteLogi/:id',
+//eliminar productor logicamente
+router.put('/productor/deleteLogi/:id',
 validar_jwt,
 check('id','No es un id de MongoDB válido').isMongoId(),
 validarCampos,
